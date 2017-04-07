@@ -21,9 +21,9 @@ function addItem(appState, item) {
 
 
 //function to remove item
-// function removeItem(appState, itemIndex) {
-// 	appState.items.splice(itemIndex, 1);
-// }
+function removeItem(appState, itemIndex) {
+	appState.items.splice(itemIndex, 1);
+};
 
 //function to check item, no jq - toggle boolean in appState
 // instead .shopping-item__checked 
@@ -33,7 +33,8 @@ function addItem(appState, item) {
 
 //render functions
 function renderList(appState, item, element) {
-	console.log(item, 'test')
+	console.log(item, 'test');
+	$('.shopping-list').html("");
 	let itemsHTML = appState.items.map(function(item) {
 		return `<li>
         			<span class="shopping-item">${item}</span>
@@ -47,27 +48,26 @@ function renderList(appState, item, element) {
         			</div>
       			</li>`;
 	});
-	//$('.shopping-list').attr(element.html(itemsHTML) );
-	// $('.shopping-list').attr().append('<li>');
 	element.append(itemsHTML);
 };
 
 
 //event listeners, calll after 
 $(document).ready(function (addEventListeners) {
+	
 	$('.shopping-list-add').on("click",function(event) {
 		event.preventDefault();
     	let item = addItem(appState, $('.shopping-list-add-input').val());
-    	//let item = $('.shopping-list').append('<li>');
-    	//$('.shopping-list').append
     	renderList(appState, item, $('.shopping-list'));
 	});
-	// $('.shopping-item-delete').remove(function(event) {
-	// 	event.preventDefault();
- //    	let itemToRemove = $('.shopping-list-remove-input').val();
- //    	removedItem(appState, item);
- //    	renderList(appState, $('.shopping-list'));
-	// });
+
+
+	$('.shopping-item-delete').on("click", function(event) {
+		//event.preventDefault();
+		//$(itemToRemove).html("");
+    	let itemToRemove = removeItem(appState, $('.shopping-list-remove-input').val());
+    	renderList(appState, $('.shopping-list'));
+	});
 	// $('.shopping-item-toggle').check(function(event) {
 	// 	event.preventDefault();
  //    	let item = $('.shopping-list-toggle-input').val();
@@ -76,9 +76,9 @@ $(document).ready(function (addEventListeners) {
 	// });
 
 
-delete.  on click 
+//delete.  on click 
 
-check
+//check
 
 });
 
