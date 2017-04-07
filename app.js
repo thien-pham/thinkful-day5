@@ -15,17 +15,18 @@ function addItem(appState, item) {
 	appState.items.push(item);
 }
 
-/*
+
 //function to remove item
 function removeItem(appState, itemIndex) {
 	appState.items.splice(itemIndex, 1);
 }
 
-//function to check item
+//function to check item, no jq - toggle boolean in appState
+// instead .shopping-item__checked 
 function checkItem(appState, item) {
 	let checkedItem = appState.item.strike();
 }
-*/
+
 
 //render functions
 function renderList(appState, element) {
@@ -37,7 +38,7 @@ function renderList(appState, element) {
 
 
 
-//event listeners
+//event listeners, calll after 
 function addEventListeners() {
 	$('.shopping-list-add').submit(function(event) {
 		event.preventDefault();
