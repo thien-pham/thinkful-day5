@@ -32,7 +32,8 @@ function addItem(appState, item) {
 
 
 //render functions
-function renderList(appState, element) {
+function renderList(appState, item, element) {
+	console.log(item, 'test')
 	let itemsHTML = appState.items.map(function(item) {
 		return `<li>
         			<span class="shopping-item">${item}</span>
@@ -46,18 +47,20 @@ function renderList(appState, element) {
         			</div>
       			</li>`;
 	});
-	element.html(itemsHTML);
+	//$('.shopping-list').attr(element.html(itemsHTML) );
+	// $('.shopping-list').attr().append('<li>');
+	element.append(itemsHTML);
 };
 
 
 //event listeners, calll after 
 $(document).ready(function (addEventListeners) {
 	$('.shopping-list-add').on("click",function(event) {
-
+		event.preventDefault();
     	let item = addItem(appState, $('.shopping-list-add-input').val());
     	//let item = $('.shopping-list').append('<li>');
     	//$('.shopping-list').append
-    	renderList(appState, $('.shopping-list'));
+    	renderList(appState, item, $('.shopping-list'));
 	});
 	// $('.shopping-item-delete').remove(function(event) {
 	// 	event.preventDefault();
@@ -71,6 +74,12 @@ $(document).ready(function (addEventListeners) {
  //    	addItem(appState, item);
  //    	renderList(appState, $('.shopping-list'));
 	// });
+
+
+delete.  on click 
+
+check
+
 });
 
 console.log(appState);
