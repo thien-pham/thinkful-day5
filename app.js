@@ -22,11 +22,33 @@ function removeItem(appState, itemIndex) {
 }
 
 //function to check item
-
+function checkItem(appState, item) {
+	let checkedItem = appState.item.strike();
+}
 
 
 //render functions
-
+function renderList(appState, element) {
+	let itemsHTML = appState.items.map(function) {
+		return `<li> item </li>`;
+	}
+	element.html(itemsHTML);
+}
 
 
 //event listeners
+function addEventListeners() {
+	$('.shopping-list-add').submit(function(event) {
+		event.preventDefault();
+    	addItem(state, $('.shopping-list-add-input').val());
+    	renderList(state, $('.shopping-list'));
+	});
+}
+
+
+
+
+
+
+
+
